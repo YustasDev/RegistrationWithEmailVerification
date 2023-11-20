@@ -1,3 +1,10 @@
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: ${ENCRYPTION_PASSWORD}
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+
+
 server:
   port: 8090
 
@@ -10,14 +17,12 @@ spring:
     port: 465
     #username: progforce.com
     username: goosseff@yandex.ru
-    #password: ENC(socYVMBMw2GmUwrEYfxxkKVePv8IyfU3pKLmbPO8u8Q=)
     password: ENC(XAvQWcrE7Q8+12wPAKBXTcg+hoDyq31M/xsRPsgdYqA=)
 
 
   datasource:
     username: root
-    #password: ENC(w7qYbKTj2l8T6ozrMwNQYpvJbVSQjUzG)
-    password: password
+    password: ENC(YYFzPCtacd3rqELvxX9IkO68aaeMlax6)
     url: jdbc:mysql://localhost:3306/medical_service?useSSL=false&serverTimezone=Europe/Moscow
     river-class-name: com.mysql.jdbc.Driver
     jpa:
