@@ -29,5 +29,8 @@ public class User implements Serializable {
 
     private boolean isEnabled;
 
+    @OneToOne(mappedBy = "user")
+    private ConfirmationToken confirmationToken;
+
 
 }
