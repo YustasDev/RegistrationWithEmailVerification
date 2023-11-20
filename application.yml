@@ -1,0 +1,36 @@
+server:
+  port: 8090
+
+spring:
+  mail:
+    protocol: smtps
+    #host: mail.smtp2go.com
+    host: smtp.yandex.com
+    #port: 2525
+    port: 465
+    #username: progforce.com
+    username: goosseff@yandex.ru
+    #password: ENC(socYVMBMw2GmUwrEYfxxkKVePv8IyfU3pKLmbPO8u8Q=)
+    password: sevsslbihnkczpil
+
+
+  datasource:
+    username: root
+    #password: ENC(w7qYbKTj2l8T6ozrMwNQYpvJbVSQjUzG)
+    password: password
+    url: jdbc:mysql://localhost:3306/medical_service?useSSL=false&serverTimezone=Europe/Moscow
+    river-class-name: com.mysql.jdbc.Driver
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+
+
+mail:
+  enabled: true
+  #from: vitaly.gusev@progforce.com
+  from: goosseff@yandex.ru
+  to: goosseff@yandex.ru, goosseff8@gmail.com, goosseff@mail.ru
+  subject: כשלון בריצת ממשק מניפה ארכיב
+
+
