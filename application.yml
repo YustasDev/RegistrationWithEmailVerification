@@ -11,7 +11,7 @@ spring:
     #username: progforce.com
     username: goosseff@yandex.ru
     #password: ENC(socYVMBMw2GmUwrEYfxxkKVePv8IyfU3pKLmbPO8u8Q=)
-    password: sevsslbihnkczpil
+    password: 
 
 
   datasource:
