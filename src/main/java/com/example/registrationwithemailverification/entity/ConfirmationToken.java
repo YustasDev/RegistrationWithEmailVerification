@@ -10,11 +10,10 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
-
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "confirmationToken")
 public class ConfirmationToken {
     @Id

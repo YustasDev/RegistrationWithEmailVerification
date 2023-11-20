@@ -23,12 +23,15 @@ spring:
   datasource:
     username: root
     password: ENC(YYFzPCtacd3rqELvxX9IkO68aaeMlax6)
-    url: jdbc:mysql://localhost:3306/medical_service?useSSL=false&serverTimezone=Europe/Moscow
-    river-class-name: com.mysql.jdbc.Driver
-    jpa:
-      show-sql: true
+    url: jdbc:mysql://localhost:3306/spring_example?useSSL=false&serverTimezone=Europe/Moscow
+    #river-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
       hibernate:
-        ddl-auto: update
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
 
 
 mail:
