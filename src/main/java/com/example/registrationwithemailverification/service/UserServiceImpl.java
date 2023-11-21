@@ -6,12 +6,16 @@ import com.example.registrationwithemailverification.entity.User;
 import com.example.registrationwithemailverification.repository.ConfirmationTokenRepository;
 import com.example.registrationwithemailverification.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Value("${mail.from}")
+    private String from;
 
     @Autowired
     private UserRepository userRepository;
@@ -38,7 +42,7 @@ public class UserServiceImpl implements UserService {
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(user.getUserEmail());
-        mailMessage.setFrom("vitaly.gusev@progforce.com");
+        mailMessage.setFrom(from);
         mailMessage.setSubject("Complete Registration!");
         mailMessage.setText("To confirm your account, please click here : "
                 +"http://localhost:8090/confirm-account?token=" + confirmationToken.getConfirmationToken());

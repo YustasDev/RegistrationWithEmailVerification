@@ -36,8 +36,8 @@ spring:
 
 mail:
   enabled: true
-  #from: vitaly.gusev@progforce.com
-  from: goosseff@yandex.ru
+  from: vitaly.gusev@progforce.com
+  #from: goosseff@yandex.ru
   to: goosseff@yandex.ru, goosseff8@gmail.com, goosseff@mail.ru
   subject: כשלון בריצת ממשק מניפה ארכיב
 
