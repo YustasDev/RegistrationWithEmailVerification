@@ -12,7 +12,7 @@ spring:
   mail:
     #protocol: smtp
     #host: mail.smtp2go.com
-    host: smtp-relay.sendinblue.com
+    host: smtp-relay.brevo.com
     #port: 2525
     port: 587
     #username: progforce.com
