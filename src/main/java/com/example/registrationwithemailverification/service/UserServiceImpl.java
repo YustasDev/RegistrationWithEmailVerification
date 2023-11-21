@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
 
-        ConfirmationToken confirmationToken = new ConfirmationToken("user");
+        ConfirmationToken confirmationToken = new ConfirmationToken(user);
 
         confirmationTokenRepository.save(confirmationToken);
 

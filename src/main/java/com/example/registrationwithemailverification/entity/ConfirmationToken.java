@@ -24,8 +24,8 @@ public class ConfirmationToken {
     @Column(name="confirmation_token")
     private String confirmationToken;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+    @Column(name="created_date")
+    private String createdDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId", referencedColumnName = "userId")
@@ -33,10 +33,12 @@ public class ConfirmationToken {
     private User user;
 
 
-    public ConfirmationToken(String confirmationToken) {
+    public ConfirmationToken(User user) {
         this.tokenId = tokenId;
         this.confirmationToken = UUID.randomUUID().toString();
-        this.createdDate = createdDate;
+        this.createdDate = new java.util.Date().toString();
+        this.user = user;
+
     }
 
 

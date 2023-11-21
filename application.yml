@@ -10,20 +10,20 @@ server:
 
 spring:
   mail:
-    protocol: smtps
+    #protocol: smtp
     #host: mail.smtp2go.com
-    host: smtp.yandex.com
+    host: smtp-relay.sendinblue.com
     #port: 2525
-    port: 465
+    port: 587
     #username: progforce.com
-    username: goosseff@yandex.ru
-    password: ENC(XAvQWcrE7Q8+12wPAKBXTcg+hoDyq31M/xsRPsgdYqA=)
+    username: goosseff8@gmail.com
+    password: ENC(h/xFDE6dFW0KA4wQ095PNKWXkxhINGF8zsOnGdjBr2U=)
 
 
   datasource:
     username: root
     password: ENC(YYFzPCtacd3rqELvxX9IkO68aaeMlax6)
-    url: jdbc:mysql://localhost:3306/spring_example?useSSL=false&serverTimezone=Europe/Moscow
+    url: jdbc:mysql://localhost:3306/registerUser?useSSL=false&serverTimezone=Europe/Moscow
     #river-class-name: com.mysql.jdbc.Driver
   jpa:
     properties:
