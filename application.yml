@@ -4,7 +4,7 @@ jasypt:
     password: ${ENCRYPTION_PASSWORD}
     iv-generator-classname: org.jasypt.iv.NoIvGenerator
 
-
+# https://medium.com/@dharampro/3-ways-to-tune-apache-tomcat-in-spring-boot-891691915cb2
 server:
   port: 8090
   tomcat:
@@ -40,8 +40,6 @@ spring:
 mail:
   enabled: true
   from: vitaly.gusev@progforce.com
-  #from: goosseff@yandex.ru
-  to: goosseff@yandex.ru, goosseff8@gmail.com, goosseff@mail.ru
   subject: כשלון בריצת ממשק מניפה ארכיב
 
 

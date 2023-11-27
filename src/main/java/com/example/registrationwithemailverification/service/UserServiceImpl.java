@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -45,7 +47,7 @@ public class UserServiceImpl implements UserService {
         mailMessage.setFrom(from);
         mailMessage.setSubject("Complete Registration!");
         mailMessage.setText("To confirm your account, please click here : "
-                +"http://localhost:8090/confirm-account?token=" + confirmationToken.getConfirmationToken());
+                + "http://localhost:8090/confirm-account?token=" + confirmationToken.getConfirmationToken());
         emailService.sendEmail(mailMessage);
 
         System.out.println("Confirmation Token: " + confirmationToken.getConfirmationToken());
@@ -58,8 +60,7 @@ public class UserServiceImpl implements UserService {
 
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
-        if(token != null)
-        {
+        if (token != null) {
             User user = userRepository.findByUserEmailIgnoreCase(token.getUser().getUserEmail());
             user.setEnabled(true);
             userRepository.save(user);
@@ -71,15 +72,29 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<?> do_something(String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
-        if(token != null)
-        {
+        if (token != null) {
             // do something
             User user = userRepository.findByUserEmailIgnoreCase(token.getUser().getUserEmail());
-            return ResponseEntity.ok("Hi " +  user.getUserName() + "!");
+            return ResponseEntity.ok("Hi " + user.getUserName() + "!");
         }
 
         return ResponseEntity.badRequest().body("Error: your data is incorrect");
 
 
+    }
+
+    public Optional<Object> findUserByUserName(String confirmationToken, String username) {
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+            Optional<User> user = null;
+            if (token != null) {
+                user = userRepository.findUserByUserName(username);
+            }
+            return Optional.ofNullable(user);
+        }
+
+
+    public String findCreated_dateByUser_id(long user_id, String token) {
+        ConfirmationToken ctok = confirmationTokenRepository.findByConfirmationToken(token);
+        return ctok.getCreatedDate();
     }
 }
