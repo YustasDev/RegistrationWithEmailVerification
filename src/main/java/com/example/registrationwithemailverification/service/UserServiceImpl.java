@@ -67,4 +67,19 @@ public class UserServiceImpl implements UserService {
         }
         return ResponseEntity.badRequest().body("Error: Couldn't verify email");
     }
+
+    public ResponseEntity<?> do_something(String confirmationToken) {
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+
+        if(token != null)
+        {
+            // do something
+            User user = userRepository.findByUserEmailIgnoreCase(token.getUser().getUserEmail());
+            return ResponseEntity.ok("Hi " +  user.getUserName() + "!");
+        }
+
+        return ResponseEntity.badRequest().body("Error: your data is incorrect");
+
+
+    }
 }

@@ -7,6 +7,10 @@ jasypt:
 
 server:
   port: 8090
+  tomcat:
+      protocol: "org.apache.coyote.http11.Http11AprProtocol"
+
+
 
 spring:
   mail:
@@ -15,7 +19,6 @@ spring:
     host: smtp-relay.brevo.com
     #port: 2525
     port: 587
-    #username: progforce.com
     username: goosseff8@gmail.com
     password: ENC(h/xFDE6dFW0KA4wQ095PNKWXkxhINGF8zsOnGdjBr2U=)
 

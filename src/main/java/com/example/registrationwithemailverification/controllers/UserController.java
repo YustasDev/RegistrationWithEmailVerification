@@ -23,4 +23,12 @@ public class UserController {
         return userService.confirmEmail(confirmationToken);
     }
 
+    @GetMapping("/do_something")
+    public ResponseEntity<?> do_something(@RequestParam("token") String confirmationToken){
+        return userService.do_something(confirmationToken);
+
+    }
+
+
+
 }
